@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge"> 
+  
+  <title>EPIS Login</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="background"></div>
+
+<div class="login-card">
+  <h2 id="roleTitle">HR LOGIN</h2>
+  <p class="subtitle">Employee Prediction Intelligence System</p>
+  <div class="role-selector">
+    <button type="button" class="role-tab active" data-role="hr">HR</button>
+    <button type="button" class="role-tab" data-role="employee">Employee</button>
+  </div>
+
+  <form id="loginForm">
+    <div class="input-group">
+      <input type="text" id="username" required>
+      <label>Username</label>
+    </div>
+
+    <div class="input-group">
+      <input type="password" id="password" required>
+      <label>Password</label>
+    </div>
+
+    <div class="remember-forgot">
+      <label><input type="checkbox" id="remember"> Remember Me</label>
+    </div>
+<br>
+    <button type="submit">Login</button>
+    <p id="error"></p>
+  </form>
+  <div class="register-link">
+    <p>Don't have an account? <a href="#">Register</a></p>
+</div>
+
+<script src="auth.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
