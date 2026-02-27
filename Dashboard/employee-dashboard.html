@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        
+        <header class="dashboard-header">
+            <div class="header-content">
+                <h1><i class="fas fa-user-circle"></i> Dashboard</h1>
+                <div class="header-actions">
+                    <button class="btn-refresh" onclick="refreshDashboard()">
+                        <i class="fas fa-sync-alt"></i> Refresh
+                    </button>
+                </div>
+            </div>
+        </header>
+
+       
+        <main class="dashboard-main">
+            <div class="left-column">
+            
+            <section class="profile-card">
+                <div class="profile-header">
+                    <div class="profile-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="profile-info">
+                        <h2 id="employeeName">Loading...</h2>
+                        <p class="employee-id">ID: <span id="employeeId">-</span></p>
+                        <p class="employee-email"><i class="fas fa-envelope"></i> <span id="employeeEmail">-</span></p>
+                    </div>
+                </div>
+            </section>
+
+            
+            <section class="info-section">
+                <h3 class="section-title"><i class="fas fa-info-circle"></i> Basic Information</h3>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <label>Department</label>
+                        <p id="department">-</p>
+                    </div>
+                    <div class="info-item">
+                        <label>Designation</label>
+                        <p id="designation">-</p>
+                    </div>
+                    <div class="info-item">
+                        <label>Date of Joining</label>
+                        <p id="dateOfJoining">-</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="info-section">
+                <h3 class="section-title"><i class="fas fa-briefcase"></i> Work Details</h3>
+                <div class="work-details">
+                    <p id="workDetails">-</p>
+                </div>
+            </section>
+            </div>
+
+            <div class="center-column">
+            <section class="performance-section">
+                <h3 class="section-title"><i class="fas fa-star"></i> Performance & Growth</h3>
+                <div class="performance-grid">
+                    <div class="performance-card">
+                        <label>Performance Rating</label>
+                        <div class="rating-display">
+                            <div class="rating-stars" id="performanceRating">
+                            </div>
+                            <span class="rating-value" id="ratingValue">0.0</span>
+                        </div>
+                        <div class="rating-bar">
+                            <div class="rating-progress" id="ratingProgress" style="width: 0%"></div>
+                        </div>
+                    </div>
+                    <div class="performance-card">
+                        <label>Promotion Probability</label>
+                        <div class="probability-display">
+                            <div class="probability-circle" id="promotionCircle">
+                                <svg width="120" height="120">
+                                    <circle cx="60" cy="60" r="50" class="circle-bg"></circle>
+                                    <circle cx="60" cy="60" r="50" class="circle-progress" id="promotionProgress"></circle>
+                                </svg>
+                                <div class="probability-text">
+                                    <span id="promotionProbability">0%</span>
+                                </div>
+                            </div>
+                            <p class="probability-label" id="promotionLabel">-</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            </div>
+
+            <aside class="right-column sidebar">
+                <div class="compact-card">
+                    <h4>Overview</h4>
+                    <div class="compact-grid">
+                        <div>
+                            <label>Total Projects</label>
+                            <div class="number" id="sidebarTotalProjects">0</div>
+                        </div>
+                        <div>
+                            <label>Completed</label>
+                            <div class="number" id="sidebarProjectsCompleted">0</div>
+                        </div>
+                        <div>
+                            <label>Completion</label>
+                            <div class="number" id="sidebarCompletionRate">0%</div>
+                        </div>
+                        <div>
+                            <label>Rating</label>
+                            <div class="number" id="sidebarRatingValueSmall">0.0</div>
+                        </div>
+                        <div>
+                            <label>Promotion</label>
+                            <div class="number" id="sidebarPromotionProbability">0%</div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <section class="stats-section sidebar-section">
+                    <h3 class="section-title"><i class="fas fa-chart-line"></i> Project Statistics</h3>
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-icon blue">
+                                <i class="fas fa-project-diagram"></i>
+                            </div>
+                            <div class="stat-info">
+                                <label>Current Project</label>
+                                <p id="currentProject">-</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon purple">
+                                <i class="fas fa-tasks"></i>
+                            </div>
+                            <div class="stat-info">
+                                <label>Total Projects</label>
+                                <p id="totalProjects" class="stat-number">0</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon green">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div class="stat-info">
+                                <label>Projects Completed</label>
+                                <p id="projectsCompleted" class="stat-number">0</p>
+                            </div>
+                        </div>
+                        <div class="stat-card highlight">
+                            <div class="stat-icon orange">
+                                <i class="fas fa-percentage"></i>
+                            </div>
+                            <div class="stat-info">
+                                <label>Project Completion Rate</label>
+                                <p id="completionRate" class="stat-number">0%</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </aside>
+        </main>
+
+        <footer class="dashboard-footer">
+            <p>&copy; 2026 Employee Management System. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script src="em-dashboard.js"></script>
+</body>
+</html>

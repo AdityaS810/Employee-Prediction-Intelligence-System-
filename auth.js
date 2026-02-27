@@ -1,7 +1,7 @@
 // Simple mock authentication module for static demo
 const mockStore = {
   hr: { username: 'admin', password: 'admin123', redirect: 'hr-dashboard.html' },
-  employee: { username: 'employee', password: 'emp123', redirect: 'employee-dashboard.html' }
+  employee: { username: 'employee', password: 'emp123', redirect: 'Dashboard/employee-dashboard.html' }
 };
 
 function authenticate(role, username, password) {
